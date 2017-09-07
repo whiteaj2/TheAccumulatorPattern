@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Andrew White.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -64,7 +64,6 @@ def test_draw_parallel_lines():
     # Test 3:
     left_most_point = rg.Point(20, 20)
     draw_parallel_lines(12, left_most_point, 470, window2)
-
     window2.close_on_mouse_click()
 
 
@@ -96,7 +95,7 @@ def draw_parallel_lines(n, point, length, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -109,6 +108,11 @@ def draw_parallel_lines(n, point, length, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+    for k in range(n):
+        start = rg.Point(point.x,point.y + 30*k)
+        line = rg.Line(start,rg.Point(start.x + length,start.y))
+        line.attach_to(window)
+        window.render(0.05)
 
 
 def test_draw_lines():
@@ -161,7 +165,7 @@ def draw_lines(n, point, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -174,6 +178,14 @@ def draw_lines(n, point, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+    start = rg.Point(point.x ,point.y - 100)
+
+    for k in range(n+ 1):
+        line = rg.Line(rg.Point(start.x,start.y + (200 / n)*k),rg.Point(start.x + 100,start.y + (200 / n)*k))
+        line.attach_to(window)
+        window.render(0.05)
+        print(line.get_midpoint())
+
 
 
 # ----------------------------------------------------------------------
