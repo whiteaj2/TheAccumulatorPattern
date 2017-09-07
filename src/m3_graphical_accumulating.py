@@ -181,6 +181,7 @@ def draw_lines(n, point, window):
     start = rg.Point(point.x ,point.y - 100)
 
     for k in range(n+ 1):
+        #(200 / n)*k goes from y-100 to y+100( range 200) in n steps
         line = rg.Line(rg.Point(start.x,start.y + (200 / n)*k),rg.Point(start.x + 100,start.y + (200 / n)*k))
         line.attach_to(window)
         window.render(0.05)
