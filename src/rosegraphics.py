@@ -858,7 +858,7 @@ class _RectangularShape(_Shape):
         return Point((self.corner_1.x + self.corner_2.x) / 2,
                      (self.corner_1.y + self.corner_2.y) / 2)
 
-    def get_height(self):
+    def get_height(self) -> object:
         """
         Returns the height (i.e., the size in
         the y-direction) of this _RectangularShape.
